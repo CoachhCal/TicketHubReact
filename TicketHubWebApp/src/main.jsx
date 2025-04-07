@@ -7,22 +7,31 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function CustomerForm() {
 
   const apiUrl = "https://ticket-hub-api-gggydshpe9cpedcb.canadacentral-01.azurewebsites.net/api/tickethub";
-  
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   async function submitForm(data) {
+  try {
     const response = await fetch(apiUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "cors", // Ensures CORS handling
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
       body: JSON.stringify(data),
     });
 
-    if (response.ok) {
-      alert("Customer record submitted successfully!");
-    } else {
-      alert("Failed to submit the record.");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
+    alert("Customer record submitted successfully!");
+  } catch (error) {
+    console.error("Fetch error:", error);
+    alert("Failed to submit the record.");
   }
+}
 
   return (
     <>
