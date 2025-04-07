@@ -73,12 +73,25 @@ function CustomerForm() {
                   {/* Email & Phone */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Email</label>
-                    <input {...register("Email", { required: true })} type="email" className="form-control" placeholder="Hans@email.com"/>
+                    <input
+                      {...register("Email", {
+                        required: true,
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Invalid email format"
+                        }
+                        })} type="email" className="form-control" placeholder="Hans@email.com"/>
                     {errors.Email && <div className="text-danger">Valid email is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Phone</label>
-                    <input {...register("Phone", { required: true })} type="tel" className="form-control" placeholder="902-321-3425"/>
+                    <input {...register("Phone", { 
+                      required: "Phone number is required", 
+                      pattern: {
+                        value: /^\d{3}-\d{3}-\d{4}$/,
+                        message: "Phone number must be in the format XXX-XXX-XXXX"
+                      } 
+                    })} type="tel" className="form-control" placeholder="902-321-3425"/>
                     {errors.Phone && <div className="text-danger">Phone is required</div>}
                   </div>
                 </div>
@@ -88,17 +101,35 @@ function CustomerForm() {
                 <div className="row">
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Credit Card</label>
-                    <input {...register("CreditCard", { required: true })} type="text" className="form-control" placeholder="1234123412341234"/>
+                    <input {...register("CreditCard", { 
+                      required: "Credit Card is required", 
+                      pattern: {
+                        value: /^\d{16}$/,
+                        message: "Credit Card must be exactly 16 digits"
+                      } 
+                    })} type="text" className="form-control" placeholder="1234123412341234"/>
                     {errors.CreditCard && <div className="text-danger">Credit card number is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Expiration</label>
-                    <input {...register("Expiration", { required: true })} type="text" className="form-control" placeholder="04/29"/>
+                    <input {...register("Expiration", { 
+                      required: "Expiration date is required", 
+                      pattern: {
+                        value: /^(0[1-9]|1[0-2])\/\d{2}$/,
+                        message: "Expiration date must be in mm/yy format"
+                      } 
+                    })} type="text" className="form-control" placeholder="04/29"/>
                     {errors.Expiration && <div className="text-danger">Expiration date is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Security Code</label>
-                    <input {...register("SecurityCode", { required: true })} type="text" className="form-control" placeholder="123"/>
+                    <input {...register("SecurityCode", { 
+                      required: "Security code is required", 
+                      pattern: {
+                        value: /^\d{3}$/,
+                        message: "Security code must be exactly 3 digits"
+                      } 
+                    })} type="text" className="form-control" placeholder="123"/>
                     {errors.SecurityCode && <div className="text-danger">Security code is required</div>}
                   </div>
                 </div>
@@ -113,22 +144,46 @@ function CustomerForm() {
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">City</label>
-                    <input {...register("City", { required: true })} type="text" className="form-control" placeholder="Halifax"/>
+                    <input {...register("City", { 
+                      required: "City is required", 
+                      pattern: {
+                        value: /^[A-Za-z\s]+$/,
+                        message: "City can only contain letters and spaces"
+                      } 
+                    })} type="text" className="form-control" placeholder="Halifax"/>
                     {errors.City && <div className="text-danger">City is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Province</label>
-                    <input {...register("Province", { required: true })} type="text" className="form-control" placeholder="Nova Scotia"/>
+                    <input {...register("Province", { 
+                      required: "Province is required", 
+                      pattern: {
+                        value: /^(Ontario|Quebec|Nova Scotia|New Brunswick|Manitoba|British Columbia|Prince Edward Island|Saskatchewan|Alberta|Newfoundland and Labrador|Northwest Territories|Yukon|Nunavut)$/,
+                        message: "Invalid province name"
+                      } 
+                    })} type="text" className="form-control" placeholder="Nova Scotia"/>
                     {errors.Province && <div className="text-danger">Province is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Postal Code</label>
-                    <input {...register("PostalCode", { required: true })} type="text" className="form-control" placeholder="b1r2t5"/>
+                    <input {...register("PostalCode", { 
+                      required: "Postal code is required", 
+                      pattern: {
+                        value: /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/,
+                        message: "Invalid postal code format (e.g., A1B 2C3)"
+                      } 
+                    })} type="text" className="form-control" placeholder="b1r2t5"/>
                     {errors.PostalCode && <div className="text-danger">Postal code is required</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Country</label>
-                    <input {...register("Country", { required: true })} type="text" className="form-control" placeholder="Canada"/>
+                    <input {...register("Country", { 
+                      required: "Country is required", 
+                      pattern: {
+                        value: /^[A-Za-z\s]+$/,
+                        message: "Country can only contain letters and spaces"
+                      } 
+                    })} type="text" className="form-control" placeholder="Canada"/>
                     {errors.Country && <div className="text-danger">Country is required</div>}
                   </div>
                 </div>
