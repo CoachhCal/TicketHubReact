@@ -92,7 +92,7 @@ function CustomerForm() {
                         message: "Phone number must be in the format XXX-XXX-XXXX"
                       } 
                     })} type="tel" className="form-control" placeholder="902-321-3425"/>
-                    {errors.Phone && <div className="text-danger">Phone is required</div>}
+                    {errors.Phone && <div className="text-danger">Phone number must be in the format XXX-XXX-XXXX</div>}
                   </div>
                 </div>
 
@@ -108,7 +108,7 @@ function CustomerForm() {
                         message: "Credit Card must be exactly 16 digits"
                       } 
                     })} type="text" className="form-control" placeholder="1234123412341234"/>
-                    {errors.CreditCard && <div className="text-danger">Credit card number is required</div>}
+                    {errors.CreditCard && <div className="text-danger">Credit Card must be exactly 16 digits</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Expiration</label>
@@ -119,7 +119,7 @@ function CustomerForm() {
                         message: "Expiration date must be in mm/yy format"
                       } 
                     })} type="text" className="form-control" placeholder="04/29"/>
-                    {errors.Expiration && <div className="text-danger">Expiration date is required</div>}
+                    {errors.Expiration && <div className="text-danger">Expiration date must be in mm/yy format</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Security Code</label>
@@ -130,7 +130,7 @@ function CustomerForm() {
                         message: "Security code must be exactly 3 digits"
                       } 
                     })} type="text" className="form-control" placeholder="123"/>
-                    {errors.SecurityCode && <div className="text-danger">Security code is required</div>}
+                    {errors.SecurityCode && <div className="text-danger">Security code must be exactly 3 digits</div>}
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@ function CustomerForm() {
                         message: "Invalid postal code format (e.g., A1B 2C3)"
                       } 
                     })} type="text" className="form-control" placeholder="b1r2t5"/>
-                    {errors.PostalCode && <div className="text-danger">Postal code is required</div>}
+                    {errors.PostalCode && <div className="text-danger">Invalid postal code format (e.g., A1B 2C3)</div>}
                   </div>
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Country</label>
