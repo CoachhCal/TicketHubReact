@@ -4,9 +4,10 @@ import './index.css';
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const apiUrl = "https://ticket-hub-api-gggydshpe9cpedcb.canadacentral-01.azurewebsites.net/api/tickethub";
-
 function CustomerForm() {
+
+  const apiUrl = "https://ticket-hub-api-gggydshpe9cpedcb.canadacentral-01.azurewebsites.net/api/tickethub";
+  
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   async function submitForm(data) {
