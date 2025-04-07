@@ -40,7 +40,7 @@ function CustomerForm() {
           {/* Title */}
           <div className="col-12 text-left">
             <h1 className="mb-4">Candlelight: The Best of Hans Zimmer</h1>
-            <h5 className="mb-4">April 26, 2025 at 8:30pm</h5>
+            <h5 className="mb-4">April 26, 2025 at 8:30pm   |   Joseph Strug Concert Hall, Halifax NS</h5>
           </div>
 
           {/* Left Column - Concert Info */}
